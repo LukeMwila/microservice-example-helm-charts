@@ -1,0 +1,15 @@
+apiVersion: v2
+description: The orders microservice helm chart
+keywords:
+  - orders
+maintainers:
+  - email: outlier.developer@gmail.com
+    name: Luke Mwila
+name: orders
+appVersion: "0.1.0"
+version: 0.1.0
+dependencies:
+  - name: ecommerce-platform
+    repository: file://../../ecommerce-platform
+    version: 0.1.0
+    alias: orders

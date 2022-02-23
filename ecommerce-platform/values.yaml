@@ -1,0 +1,19 @@
+## Kubernetes Deployment
+##
+deployment:
+  name: "UPDATE"
+  replicas: 0
+  appName: "UPDATE"
+  containerName: "UPDATE"
+  image: "UPDATE"
+  port: 0
+
+## Kubernetes Service
+##
+service:
+  name: "UPDATE"
+  appName: "UPDATE"
+  type: "UPDATE"
+  servicePort: 0
+  targetPort: 0
+

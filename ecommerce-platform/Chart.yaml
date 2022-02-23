@@ -1,0 +1,9 @@
+apiVersion: v2
+description: A Common Helm Chart for Digital E-Commerce Platform Applications
+keywords:
+- ecommerce-platform
+maintainers:
+- email: outlier.developer@gmail.com
+  name: Luke Mwila
+name: ecommerce-platform
+version: 0.1.0

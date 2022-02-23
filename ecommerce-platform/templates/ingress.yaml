@@ -1,0 +1,18 @@
+{{- if .Values.ingress.enabled }}
+  apiVersion: networking.k8s.io/v1beta1
+  kind: Ingress
+  metadata:
+    name: {{ .Values.graphql.ingress.name }}
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    labels:
+      app: {{ .Values.graphql.ingress.name }}
+  spec:
+    rules:
+      - http:
+          paths:
+            - path: {{ .Values.graphql.ingress.path }}
+              backend:
+                serviceName: {{ .Values.graphql.ingress.serviceName }}
+                servicePort: {{ .Values.graphql.ingress.servicePort }}
+{{- end }}
