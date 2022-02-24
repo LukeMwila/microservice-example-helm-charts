@@ -1,0 +1,4 @@
+*.lock
+application-charts/*/charts/*
+application-charts/*/charts
+*-test-manifests.yaml

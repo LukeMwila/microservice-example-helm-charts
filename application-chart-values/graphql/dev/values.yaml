@@ -31,3 +31,6 @@ graphql:
   # Namespace object
   namespace: 
     enabled: false
+  # Ingress 
+  ingress:
+    enabled: false
