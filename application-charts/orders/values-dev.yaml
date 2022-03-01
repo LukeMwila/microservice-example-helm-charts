@@ -1,6 +1,5 @@
 global:
   chartName: orders
-
 orders:
   # Deployment object
   deployment:
@@ -12,7 +11,7 @@ orders:
     role: api
     containerName: orders-container
     imageRepository: lukondefmwila/ecommerce-orders
-    imageTag: 0.1.0
+    imageTag: 0.1.1
     port: 3003
   # Service object
   service:
@@ -24,12 +23,12 @@ orders:
     servicePort: 3003
     targetPort: 3003
   # Service Account object
-  serviceAccount: 
+  serviceAccount:
     enabled: true
     name: orders-service-account
     namespace: ecommerce
   # Namespace object
-  namespace: 
+  namespace:
     enabled: false
   # Ingress 
   ingress:
