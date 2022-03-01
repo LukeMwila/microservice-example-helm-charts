@@ -1,6 +1,5 @@
 global:
   chartName: graphql
-
 graphql:
   # Deployment object
   deployment:
@@ -11,8 +10,8 @@ graphql:
     appName: graphql
     role: api
     containerName: graphql-container
-    imageRepository: lukondefmwila/ecommerce-graphql 
-    imageTag: 0.1.0
+    imageRepository: lukondefmwila/ecommerce-graphql
+    imageTag: 0.1.1
     port: 3002
   # Service object
   service:
@@ -24,12 +23,12 @@ graphql:
     servicePort: 3002
     targetPort: 3002
   # Service Account object
-  serviceAccount: 
+  serviceAccount:
     enabled: true
     name: graphql-service-account
     namespace: ecommerce
   # Namespace object
-  namespace: 
+  namespace:
     enabled: false
   # Ingress 
   ingress:
