@@ -11,7 +11,7 @@ graphql:
     role: api
     containerName: graphql-container
     imageRepository: lukondefmwila/ecommerce-graphql
-    imageTag: 0.1.1
+    imageTag: 0.1.2
     port: 3002
   # Service object
   service:
