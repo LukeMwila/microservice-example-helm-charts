@@ -8,7 +8,7 @@ deployment:
   role: api
   containerName: orders-container
   imageRepository: lukondefmwila/ecommerce-orders
-  imageTag: 0.1.1
+  imageTag: 0.1.2
   port: 3003
 # Service object
 service:
