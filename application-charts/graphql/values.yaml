@@ -8,7 +8,7 @@ deployment:
   role: api
   containerName: graphql-container
   imageRepository: lukondefmwila/ecommerce-graphql
-  imageTag: "0.1.3"
+  imageTag: "0.1.5"
   port: 3002
 # Service object
 service:
