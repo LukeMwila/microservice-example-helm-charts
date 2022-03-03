@@ -30,6 +30,3 @@ namespace:
 # Ingress 
 ingress:
   enabled: false
-orders:
-  deployment:
-    imageTag: 0.1.2
