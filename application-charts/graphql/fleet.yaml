@@ -19,6 +19,3 @@ helm:
   # How long for helm to wait for the release to be active. If the value
   # is less that or equal to zero, we will not wait in Helm
   timeoutSeconds: 0
-  # Path to any values files that need to be passed to helm during install
-  valuesFiles:
-    - values-dev.yaml
