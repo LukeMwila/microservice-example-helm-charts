@@ -1,0 +1,7 @@
+# Custom helm options
+helm:
+  # The release name to use. If empty a generated release name will be used
+  releaseName: graphql
+  # Path to any values files that need to be passed to helm during install
+  valuesFiles:
+    - values-dev.yaml
