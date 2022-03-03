@@ -8,7 +8,7 @@ deployment:
   role: api
   containerName: products-container
   imageRepository: lukondefmwila/ecommerce-products
-  imageTag: 0.1.1
+  imageTag: 0.1.2
   port: 3004
 # Service object
 service:
