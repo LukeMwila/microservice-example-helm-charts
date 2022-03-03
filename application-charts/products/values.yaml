@@ -1,35 +1,32 @@
-global:
-  chartName: products
-products:
-  # Deployment object
-  deployment:
-    enabled: true
-    name: products
-    namespace: ecommerce
-    replicas: 3
-    appName: products
-    role: api
-    containerName: products-container
-    imageRepository: lukondefmwila/ecommerce-products
-    imageTag: 0.1.1
-    port: 3004
-  # Service object
-  service:
-    enabled: true
-    name: products-service
-    namespace: ecommerce
-    appName: products
-    type: ClusterIP
-    servicePort: 3004
-    targetPort: 3004
-  # Service Account object
-  serviceAccount:
-    enabled: true
-    name: products-service-account
-    namespace: ecommerce
-  # Namespace object
-  namespace:
-    enabled: false
-  # Ingress 
-  ingress:
-    enabled: false
+# Deployment object
+deployment:
+  enabled: true
+  name: products
+  namespace: ecommerce
+  replicas: 3
+  appName: products
+  role: api
+  containerName: products-container
+  imageRepository: lukondefmwila/ecommerce-products
+  imageTag: 0.1.1
+  port: 3004
+# Service object
+service:
+  enabled: true
+  name: products-service
+  namespace: ecommerce
+  appName: products
+  type: ClusterIP
+  servicePort: 3004
+  targetPort: 3004
+# Service Account object
+serviceAccount:
+  enabled: true
+  name: products-service-account
+  namespace: ecommerce
+# Namespace object
+namespace:
+  enabled: false
+# Ingress 
+ingress:
+  enabled: false

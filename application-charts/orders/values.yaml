@@ -1,35 +1,32 @@
-global:
-  chartName: orders
-orders:
-  # Deployment object
-  deployment:
-    enabled: true
-    name: orders
-    namespace: ecommerce
-    replicas: 3
-    appName: orders
-    role: api
-    containerName: orders-container
-    imageRepository: lukondefmwila/ecommerce-orders
-    imageTag: 0.1.1
-    port: 3003
-  # Service object
-  service:
-    enabled: true
-    name: orders-service
-    namespace: ecommerce
-    appName: orders
-    type: ClusterIP
-    servicePort: 3003
-    targetPort: 3003
-  # Service Account object
-  serviceAccount:
-    enabled: true
-    name: orders-service-account
-    namespace: ecommerce
-  # Namespace object
-  namespace:
-    enabled: false
-  # Ingress 
-  ingress:
-    enabled: false
+# Deployment object
+deployment:
+  enabled: true
+  name: orders
+  namespace: ecommerce
+  replicas: 3
+  appName: orders
+  role: api
+  containerName: orders-container
+  imageRepository: lukondefmwila/ecommerce-orders
+  imageTag: 0.1.1
+  port: 3003
+# Service object
+service:
+  enabled: true
+  name: orders-service
+  namespace: ecommerce
+  appName: orders
+  type: ClusterIP
+  servicePort: 3003
+  targetPort: 3003
+# Service Account object
+serviceAccount:
+  enabled: true
+  name: orders-service-account
+  namespace: ecommerce
+# Namespace object
+namespace:
+  enabled: false
+# Ingress 
+ingress:
+  enabled: false
