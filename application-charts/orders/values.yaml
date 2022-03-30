@@ -10,15 +10,14 @@ deployment:
   imageRepository: lukondefmwila/ecommerce-orders
   imageTag: 0.1.1
   port: 3003
+# Horizontal Pod Autoscaler
+hpa:
+  enabled: true 
+  name: orders-hpa
+  namespace: ecommerce
 # Service object
 service:
-  enabled: true
-  name: orders-service
-  namespace: ecommerce
-  appName: orders
-  type: ClusterIP
-  servicePort: 3003
-  targetPort: 3003
+  enabled: false
 # Service Account object
 serviceAccount:
   enabled: true
@@ -29,4 +28,10 @@ namespace:
   enabled: false
 # Ingress 
 ingress:
-  enabled: false
+  enabled: true
+  name: orders
+  namespace: ecommerce
+  host: lukemwila.com
+  path: "/"
+  serviceName: orders
+  servicePort: 80
