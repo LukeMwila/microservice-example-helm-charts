@@ -8,11 +8,11 @@ deployment:
   role: api
   containerName: orders-container
   imageRepository: lukondefmwila/ecommerce-orders
-  imageTag: 0.1.4
+  imageTag: 0.1.5
   port: 3003
 # Horizontal Pod Autoscaler
 hpa:
-  enabled: true 
+  enabled: true
   name: orders-hpa
   namespace: ecommerce
 # Service object
