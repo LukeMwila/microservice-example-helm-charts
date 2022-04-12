@@ -25,7 +25,6 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: {{ .Values.canaryRollout.deployment.port }}
-  minReadySeconds: 30
   revisionHistoryLimit: 3
   strategy:
     canary:
