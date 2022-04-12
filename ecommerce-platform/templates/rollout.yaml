@@ -16,4 +16,13 @@ spec:
           # Reference to an Ingress which has a rule pointing to the stable service (e.g. rollouts-demo-stable)
           # This ingress will be cloned with a new name, in order to achieve NGINX traffic splitting.
           stableIngress: {{ .Values.canaryRollout.stableIngress }}
+      steps:
+      - setWeight: 20
+      - pause: {duration: 40s}
+      - setWeight: 40
+      - pause: {duration: 20s}
+      - setWeight: 60
+      - pause: {duration: 20s}
+      - setWeight: 80
+      - pause: {duration: 10s}
 {{- end }}
