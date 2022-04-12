@@ -10,6 +10,6 @@ spec:
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
-    name: {{ .Values.deployment.name }}
+    name: {{ .Values.hpa.appName }}
   targetCPUUtilizationPercentage: 80
 {{- end }}

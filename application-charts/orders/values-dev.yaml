@@ -53,6 +53,7 @@ orders:
     enabled: true 
     name: orders-hpa
     namespace: ecommerce
+    appName: orders
   # Canary Rollout
   canaryRollout:
     enabled: true
