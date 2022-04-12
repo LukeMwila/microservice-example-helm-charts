@@ -46,7 +46,7 @@ orders:
     namespace: ecommerce
     host: lukemwila.com
     path: "/"
-    serviceName: orders
+    serviceName: orders-service-stable
     servicePort: 80
   # Horizontal Pod Autoscaler
   hpa:
