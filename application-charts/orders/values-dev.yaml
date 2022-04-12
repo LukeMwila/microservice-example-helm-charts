@@ -38,7 +38,7 @@ orders:
     host: lukemwila.com
     path: "/"
     serviceName: orders-service-stable
-    servicePort: 80
+    servicePort: 3003
   # Horizontal Pod Autoscaler
   hpa:
     enabled: true 
