@@ -5,26 +5,26 @@ metadata:
   name: {{ .Values.canaryRollout.appName }}
   namespace: {{ .Values.canaryRollout.namespace }}
 spec:
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ .Values.canaryRollout.deployment.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.deployment.appName }}
-      role: {{ .Values.deployment.role }}
+      app: {{ .Values.canaryRollout.deployment.appName }}
+      role: {{ .Values.canaryRollout.deployment.role }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.appName }}
-        role: {{ .Values.deployment.role }}
+        app: {{ .Values.canaryRollout.deployment.appName }}
+        role: {{ .Values.canaryRollout.deployment.role }}
     spec:
       containers:
-      - name: {{ .Values.deployment.containerName }}
-        image: "{{ .Values.deployment.imageRepository }}:{{ .Values.deployment.imageTag }}"
+      - name: {{ .Values.canaryRollout.deployment.containerName }}
+        image: "{{ .Values.canaryRollout.deployment.imageRepository }}:{{ .Values.canaryRollout.deployment.imageTag }}"
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: {{ .Values.deployment.port }}
+        - containerPort: {{ .Values.canaryRollout.deployment.port }}
   minReadySeconds: 30
   revisionHistoryLimit: 3
   strategy:

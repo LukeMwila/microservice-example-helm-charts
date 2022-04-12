@@ -3,16 +3,7 @@ global:
 orders:
   # Deployment object
   deployment:
-    enabled: true
-    name: orders
-    namespace: ecommerce
-    replicas: 3
-    appName: orders
-    role: api
-    containerName: orders-container
-    imageRepository: lukondefmwila/ecommerce-orders
-    imageTag: 0.2.1
-    port: 3003
+    enabled: false
   # Stable Service object
   service:
     enabled: true
@@ -62,3 +53,14 @@ orders:
     canaryService: orders-service-canary
     stableService: orders-service-stable
     stableIngress: orders
+    deployment:
+      enabled: true
+      name: orders
+      namespace: ecommerce
+      replicas: 3
+      appName: orders
+      role: api
+      containerName: orders-container
+      imageRepository: lukondefmwila/ecommerce-orders
+      imageTag: 0.2.1
+      port: 3003
