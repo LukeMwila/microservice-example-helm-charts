@@ -1,0 +1,19 @@
+{{- if .Values.canaryRollout.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ .Values.canaryRollout.appName }}
+  namespace: {{ .Values.canaryRollout.namespace }}
+spec:
+  strategy:
+    canary:
+      # Reference to a Service which the controller will update to point to the canary ReplicaSet
+      canaryService: {{ .Values.canaryRollout.canaryService }}
+      # Reference to a Service which the controller will update to point to the stable ReplicaSet
+      stableService: {{ .Values.canaryRollout.stableService }}
+      trafficRouting:
+        nginx:
+          # Reference to an Ingress which has a rule pointing to the stable service (e.g. rollouts-demo-stable)
+          # This ingress will be cloned with a new name, in order to achieve NGINX traffic splitting.
+          stableIngress: {{ .Values.canaryRollout.stableIngress }}
+{{- end }}

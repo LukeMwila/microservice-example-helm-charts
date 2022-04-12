@@ -1,0 +1,15 @@
+{{- if .Values.canaryService.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.canaryService.name }}
+  namespace: {{ .Values.canaryService.namespace }}
+spec:
+  selector:
+    app: {{ .Values.canaryService.appName }}
+  type: {{ .Values.canaryService.type }}
+  ports:
+  - protocol: TCP
+    port: {{ .Values.canaryService.servicePort }}
+    targetPort: {{ .Values.canaryService.targetPort }}
+{{- end }}

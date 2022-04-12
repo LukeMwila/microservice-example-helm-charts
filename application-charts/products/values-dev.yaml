@@ -13,14 +13,23 @@ products:
     imageRepository: lukondefmwila/ecommerce-products
     imageTag: 0.1.3
     port: 3004
-  # Service object
+  # Stable Service object
   service:
     enabled: true
-    name: products-service
+    name: products-service-stable
     namespace: ecommerce
     appName: products
     type: ClusterIP
     servicePort: 3004
+    targetPort: 3004
+  # Canary Service object
+  canaryService:
+    enabled: true
+    name: products-service-canary
+    namespace: ecommerce
+    appName: products
+    type: ClusterIP
+    servicePort: 3040
     targetPort: 3004
   # Service Account object
   serviceAccount:
@@ -32,4 +41,10 @@ products:
     enabled: false
   # Ingress 
   ingress:
+    enabled: false
+  # Horizontal Pod Autoscaler
+  hpa:
+    enabled: false
+  # Canary Rollout
+  canaryRollout:
     enabled: false

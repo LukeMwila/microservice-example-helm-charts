@@ -13,14 +13,23 @@ orders:
     imageRepository: lukondefmwila/ecommerce-orders
     imageTag: 0.2.1
     port: 3003
-  # Service object
+  # Stable Service object
   service:
     enabled: true
-    name: orders-service
+    name: orders-service-stable
     namespace: ecommerce
     appName: orders
-    type: ClusterIP
+    type: LoadBalancer
     servicePort: 3003
+    targetPort: 3003
+  # Canary Service object
+  canaryService:
+    enabled: true
+    name: orders-service-canary
+    namespace: ecommerce
+    appName: orders
+    type: LoadBalancer
+    servicePort: 3030
     targetPort: 3003
   # Service Account object
   serviceAccount:
@@ -32,4 +41,23 @@ orders:
     enabled: false
   # Ingress 
   ingress:
-    enabled: false
+    enabled: true
+    name: orders
+    namespace: ecommerce
+    host: lukemwila.com
+    path: "/"
+    serviceName: orders
+    servicePort: 80
+  # Horizontal Pod Autoscaler
+  hpa:
+    enabled: true 
+    name: orders-hpa
+    namespace: ecommerce
+  # Canary Rollout
+  canaryRollout:
+    enabled: true
+    appName: orders 
+    namespace: ecommerce
+    canaryService: orders-service-canary
+    stableService: orders-service-stable
+    stableIngress: orders
