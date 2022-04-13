@@ -41,14 +41,14 @@ orders:
     servicePort: 3003
   # Horizontal Pod Autoscaler
   hpa:
-    enabled: true 
+    enabled: true
     name: orders-hpa
     namespace: ecommerce
     appName: orders
   # Canary Rollout
   canaryRollout:
     enabled: true
-    appName: orders 
+    appName: orders
     namespace: ecommerce
     canaryService: orders-service-canary
     stableService: orders-service-stable
@@ -62,5 +62,5 @@ orders:
       role: api
       containerName: orders-container
       imageRepository: lukondefmwila/ecommerce-orders
-      imageTag: 0.2.1
+      imageTag: 0.2.2
       port: 3003
