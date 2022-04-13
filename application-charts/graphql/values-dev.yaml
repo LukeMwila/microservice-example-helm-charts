@@ -13,6 +13,9 @@ graphql:
     imageRepository: lukondefmwila/ecommerce-graphql
     imageTag: "0.1.4"
     port: 3002
+  # Canary Service object
+  canaryService:
+    enabled: false
   # Service object
   service:
     enabled: true
@@ -33,3 +36,9 @@ graphql:
   # Ingress 
   ingress:
     enabled: false
+  # Horizontal Pod Autoscaler
+  hpa:
+    enabled: false
+  # Canary Rollout
+  canaryRollout:
+    enabled: false 
