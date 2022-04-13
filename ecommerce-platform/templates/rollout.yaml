@@ -26,8 +26,11 @@ spec:
         ports:
         - containerPort: {{ .Values.canaryRollout.deployment.port }}
   revisionHistoryLimit: 3
+  progressDeadlineSeconds: 700
+  progressDeadlineAbort: true
   strategy:
     canary:
+      scaleDownDelaySeconds: 30
       # Reference to a Service which the controller will update to point to the canary ReplicaSet
       canaryService: {{ .Values.canaryRollout.canaryService }}
       # Reference to a Service which the controller will update to point to the stable ReplicaSet
