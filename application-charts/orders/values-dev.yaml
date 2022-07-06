@@ -3,11 +3,20 @@ global:
 orders:
   # Deployment object
   deployment:
-    enabled: false
+    enabled: true
+    name: orders
+    namespace: ecommerce
+    replicas: 3
+    appName: orders
+    role: api
+    containerName: orders-container
+    imageRepository: lukondefmwila/ecommerce-orders
+    imageTag: 0.2.1
+    port: 3003
   # Stable Service object
   service:
     enabled: true
-    name: orders-service-stable
+    name: orders-service
     namespace: ecommerce
     appName: orders
     type: LoadBalancer
@@ -15,13 +24,7 @@ orders:
     targetPort: 3003
   # Canary Service object
   canaryService:
-    enabled: true
-    name: orders-service-canary
-    namespace: ecommerce
-    appName: orders
-    type: LoadBalancer
-    servicePort: 3030
-    targetPort: 3003
+    enabled: false
   # Service Account object
   serviceAccount:
     enabled: true
@@ -37,7 +40,7 @@ orders:
     namespace: ecommerce
     host: lukemwila.com
     path: "/"
-    serviceName: orders-service-stable
+    serviceName: orders-service
     servicePort: 3003
   # Horizontal Pod Autoscaler
   hpa:
@@ -47,20 +50,4 @@ orders:
     appName: orders
   # Canary Rollout
   canaryRollout:
-    enabled: true
-    appName: orders 
-    namespace: ecommerce
-    canaryService: orders-service-canary
-    stableService: orders-service-stable
-    stableIngress: orders
-    deployment:
-      enabled: true
-      name: orders
-      namespace: ecommerce
-      replicas: 3
-      appName: orders
-      role: api
-      containerName: orders-container
-      imageRepository: lukondefmwila/ecommerce-orders
-      imageTag: 0.2.1
-      port: 3003
+    enabled: false
