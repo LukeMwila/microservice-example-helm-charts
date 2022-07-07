@@ -16,12 +16,20 @@ spec:
         app: {{ .Values.deployment.appName }}
         role: {{ .Values.deployment.role }}
     spec:
+      hostPID: false
+      hostIPC: false
       containers:
       - name: {{ .Values.deployment.containerName }}
-        image: "{{ .Values.deployment.imageRepository }}:{{ .Values.deployment.imageTag }}"
+        image: "{{ .Values.deployment.imageRepository }}@{{ .Values.deployment.imageTag }}"
+        securityContext:
+          runAsUser: 25000
+          privileged: false
         resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
           limits:
-            memory: "128Mi"
+            memory: "512Mi"
             cpu: "500m"
         ports:
         - containerPort: {{ .Values.deployment.port }}
