@@ -22,8 +22,8 @@ spec:
       - name: {{ .Values.deployment.containerName }}
         image: "{{ .Values.deployment.imageRepository }}@{{ .Values.deployment.imageTag }}"
         securityContext:
-          runAsUser: 25000
           privileged: false
+          allowPrivilegeEscalation: false
         resources:
           requests:
             memory: "512Mi"

@@ -19,7 +19,7 @@ orders:
     name: orders-service
     namespace: ecommerce
     appName: orders
-    type: LoadBalancer
+    type: ClusterIP
     servicePort: 3003
     targetPort: 3003
   # Canary Service object
@@ -44,10 +44,7 @@ orders:
     servicePort: 3003
   # Horizontal Pod Autoscaler
   hpa:
-    enabled: true
-    name: orders-hpa
-    namespace: ecommerce
-    appName: orders
+    enabled: false
   # Canary Rollout
   canaryRollout:
     enabled: false
