@@ -11,7 +11,7 @@ orders:
     role: api
     containerName: orders-container
     imageRepository: 776008521384.dkr.ecr.eu-west-1.amazonaws.com/lukondemwila/ecommerce-orders
-    imageTag: sha256:0f6be24cf53136369eca9148237ba2b2db8ccfe49478ef2179c23570d304e489
+    imageTag: sha256:48e6124c3a3a6a404aa282b3f5fc4d8cb5c64fa61b01870b189298c9f25a24b6
     port: 3003
   # Stable Service object
   service:
