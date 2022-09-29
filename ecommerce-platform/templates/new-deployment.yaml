@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.name }}
-  namespace: {{ .Values.deployment.namespace }}
+  name: {{ .Values.newDeployment.name }}
+  namespace: {{ .Values.newDeployment.namespace }}
 spec:
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ .Values.newDeployment.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.deployment.appName }}
-      role: {{ .Values.deployment.role }}
+      app: {{ .Values.newDeployment.appName }}
+      role: {{ .Values.newDeployment.role }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.appName }}
-        role: {{ .Values.deployment.role }}
+        app: {{ .Values.newDeployment.appName }}
+        role: {{ .Values.newDeployment.role }}
     spec:
       containers:
-      - name: {{ .Values.deployment.containerName }}
-        image: "{{ .Values.deployment.imageRepository }}@{{ .Values.deployment.imageTag }}"
+      - name: {{ .Values.newDeployment.containerName }}
+        image: "{{ .Values.newDeployment.imageRepository }}@{{ .Values.newDeployment.imageTag }}"
         resources:
           limits:
             cpu: 2000m
@@ -27,5 +27,5 @@ spec:
             cpu: 100m
             memory: 64Mi
         ports:
-        - containerPort: {{ .Values.deployment.port }}
+        - containerPort: {{ .Values.newDeployment.port }}
 {{- end }}

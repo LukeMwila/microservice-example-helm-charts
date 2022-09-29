@@ -3,6 +3,9 @@ global:
 orders:
   # Deployment object
   deployment:
+    enabled: false 
+  # Updated (New) Deployment resource
+  newDeployment:
     enabled: true
     name: orders
     namespace: ecommerce
@@ -13,15 +16,9 @@ orders:
     imageRepository: lukondefmwila/ecommerce-orders
     imageTag: sha256:a4cd4c95ac09725df972165f9d23d3780175e1b7c7d28f37cb1b3db05719b33a
     port: 3003
-  # Updated (New) Deployment resource
-  newDeployment:
-    enabled: true
   # Horizontal Pod Autoscaler
   hpa:
-    enabled: true
-    name: orders-hpa
-    appName: orders
-    namespace: ecommerce
+    enabled: false
   # Service Account object
   serviceAccount:
     enabled: true
