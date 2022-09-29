@@ -5,11 +5,11 @@ metadata:
   name: {{ .Values.hpa.name }}
   namespace: {{ .Values.hpa.namespace }}
 spec:
-  maxReplicas: 10
+  maxReplicas: 4
   minReplicas: 2
   scaleTargetRef:
-    apiVersion: argoproj.io/v1alpha1
-    kind: Rollout
+    apiVersion: apps/v1
+    kind: Deployment
     name: {{ .Values.hpa.appName }}
   targetCPUUtilizationPercentage: 80
 {{- end }}

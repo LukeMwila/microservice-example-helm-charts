@@ -3,64 +3,38 @@ global:
 orders:
   # Deployment object
   deployment:
-    enabled: false
-  # Stable Service object
-  service:
-    enabled: true
-    name: orders-service-stable
-    namespace: ecommerce
-    appName: orders
-    type: LoadBalancer
-    servicePort: 3003
-    targetPort: 3003
-  # Canary Service object
-  canaryService:
-    enabled: true
-    name: orders-service-canary
-    namespace: ecommerce
-    appName: orders
-    type: LoadBalancer
-    servicePort: 3030
-    targetPort: 3003
-  # Service Account object
-  serviceAccount:
-    enabled: true
-    name: orders-service-account
-    namespace: ecommerce
-  # Namespace object
-  namespace:
-    enabled: false
-  # Ingress 
-  ingress:
     enabled: true
     name: orders
     namespace: ecommerce
-    host: lukemwila.com
-    path: "/"
-    serviceName: orders-service-stable
-    servicePort: 3003
+    replicas: 3
+    appName: orders
+    role: api
+    containerName: orders-container
+    imageRepository: lukondefmwila/ecommerce-orders
+    imageTag: 0.1.2
+    port: 3003
   # Horizontal Pod Autoscaler
   hpa:
     enabled: true 
     name: orders-hpa
     namespace: ecommerce
-    appName: orders
-  # Canary Rollout
-  canaryRollout:
+  # Service Account object
+  serviceAccount:
     enabled: true
-    appName: orders 
+    name: orders-service-account
     namespace: ecommerce
-    canaryService: orders-service-canary
-    stableService: orders-service-stable
-    stableIngress: orders
-    deployment:
-      enabled: true
-      name: orders
-      namespace: ecommerce
-      replicas: 3
-      appName: orders
-      role: api
-      containerName: orders-container
-      imageRepository: lukondefmwila/ecommerce-orders
-      imageTag: 0.2.1
-      port: 3003
+  # Stable Service object
+  service:
+    enabled: false
+  # Canary Service object (for Argo Rollouts)
+  canaryService:
+    enabled: false
+  # Namespace object
+  namespace:
+    enabled: false
+  # Ingress 
+  ingress:
+    enabled: false
+  # Canary Rollout # Canary Service object (for Argo Rollouts)
+  canaryRollout:
+    enabled: false

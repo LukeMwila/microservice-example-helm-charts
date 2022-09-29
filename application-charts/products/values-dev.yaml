@@ -16,7 +16,7 @@ products:
   # Stable Service object
   service:
     enabled: true
-    name: products-service-stable
+    name: products-service
     namespace: ecommerce
     appName: products
     type: ClusterIP
@@ -24,13 +24,7 @@ products:
     targetPort: 3004
   # Canary Service object
   canaryService:
-    enabled: true
-    name: products-service-canary
-    namespace: ecommerce
-    appName: products
-    type: ClusterIP
-    servicePort: 3040
-    targetPort: 3004
+    enabled: false
   # Service Account object
   serviceAccount:
     enabled: true
