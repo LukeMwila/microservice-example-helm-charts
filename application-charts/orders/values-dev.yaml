@@ -29,7 +29,13 @@ orders:
     namespace: ecommerce
   # Stable Service object
   service:
-    enabled: false
+    enabled: true
+    name: orders-service
+    namespace: ecommerce
+    appName: orders
+    type: ClusterIP
+    servicePort: 3003
+    targetPort: 3003
   # Canary Service object (for Argo Rollouts)
   canaryService:
     enabled: false
