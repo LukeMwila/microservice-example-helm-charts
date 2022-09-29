@@ -3,7 +3,8 @@ global:
 orders:
   # Deployment object
   deployment:
-    enabled: false 
+    enabled: false
+    imageTag: sha256:c7301e0faa44101345ad0ae96c65c81e3fdc09f874d4a0731d3b2144569d8770
   # Updated (New) Deployment resource
   newDeployment:
     enabled: true
