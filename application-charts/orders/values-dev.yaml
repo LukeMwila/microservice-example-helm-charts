@@ -17,6 +17,7 @@ orders:
   hpa:
     enabled: true 
     name: orders-hpa
+    appName: orders
     namespace: ecommerce
   # Service Account object
   serviceAccount:
