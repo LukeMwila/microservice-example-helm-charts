@@ -13,6 +13,9 @@ products:
     imageRepository: lukondefmwila/ecommerce-products
     imageTag: 0.1.3
     port: 3004
+  # Updated (New) Deployment resource
+  newDeployment:
+    enabled: false
   # Stable Service object
   service:
     enabled: true

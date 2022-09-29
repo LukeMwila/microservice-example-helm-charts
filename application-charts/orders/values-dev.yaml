@@ -13,6 +13,9 @@ orders:
     imageRepository: lukondefmwila/ecommerce-orders
     imageTag: 0.1.2
     port: 3003
+  # Updated (New) Deployment resource
+  newDeployment:
+    enabled: true
   # Horizontal Pod Autoscaler
   hpa:
     enabled: true 
