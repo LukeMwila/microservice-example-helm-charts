@@ -14,7 +14,7 @@ orders:
     role: api
     containerName: orders-container
     imageRepository: lukondefmwila/ecommerce-orders
-    imageTag: sha256:2d8a12a1d2dff5abeceaea59c897d807e8627c4e4809ec0236eb442df3d350f5
+    imageTag: sha256:531ecd25a5a854a632c2ec902bdfd9c0c0c5a5028a5c1b6f67a7571d2e800e8b
     port: 3003
   # Horizontal Pod Autoscaler
   hpa:
